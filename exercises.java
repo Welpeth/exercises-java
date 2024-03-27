@@ -1,10 +1,11 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.lang.Math;
+import java.util.Date;
 
 public class exercises {
     public static void main(String[] args) {
-        exercicio17();
+        exercicio24();
     }
 
     // Exercício 1: Verificar se um número é positivo, negativo ou zero
@@ -270,6 +271,59 @@ public class exercises {
             default:
                 System.out.println("escolha invalida");
                 break;
+        }
+    }
+
+    // Exercicio EXTRA
+    public static void exercicio22() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Tente adivinhar o número!");
+        int num = entrada.nextInt();
+        entrada.close();
+
+        Random random = new Random();
+        int resultado = random.nextInt(10) + 1;
+
+        if (num == resultado) {
+            System.out.println("O número correto era " + resultado);
+        } else {
+            System.out.println("Errou");
+        }
+    }
+
+    // Exercicio 23
+    public static void exercicio23() {
+        String hi = "Hello world";
+        System.out.println(new StringBuilder(hi).reverse().toString());
+    }
+
+    // Exercicio 24
+    @SuppressWarnings("deprecation")
+    public static void exercicio24() {
+
+        Date dataInicial = new Date(2022, 01, 01);
+        Date dataFinal = new Date(2023, 01, 01);
+
+        long numeroDeDias = (dataFinal.getTime() - dataInicial.getTime()) / (24 * 60 * 60 * 1000);
+
+        System.out.println("O número de dias entre as duas datas é " + numeroDeDias);
+    }
+
+    // Exercicio 25
+    public static void exercicio25() {
+        int altura = 5;
+
+        for (int i = 1; i <= altura; i++) {
+
+            for (int j = altura; j > i; j--) {
+                System.out.print(" ");
+            }
+
+            for (int k = 0; k < 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
         }
     }
 }
