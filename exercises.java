@@ -1,11 +1,13 @@
 import java.util.Scanner;
+import java.util.stream.Collector.Characteristics;
 import java.util.Random;
 import java.lang.Math;
+import java.util.Arrays;
 import java.util.Date;
 
 public class exercises {
     public static void main(String[] args) {
-        exercicio25();
+        exercicio15();
     }
 
     // Exercício 1: Verificar se um número é positivo, negativo ou zero
@@ -178,13 +180,20 @@ public class exercises {
     public static void exercicio15() {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Escreva uma letra para ver se ela é vogal ou consoante");
-        String letra = entrada.nextLine();
+        char letra = entrada.next().charAt(0);
         entrada.close();
 
-        if (letra.equals("a") || letra.equals("e") || letra.equals("i") || letra.equals("o") || letra.equals("u")) {
-            System.out.println("A letra " + letra + " é uma vogal");
-        } else if (letra.equals("A") || letra.equals("E") || letra.equals("I") || letra.equals("O")
-                || letra.equals("U")) {
+        char[] vogais = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+
+        boolean ehVogal = false;
+        for (char vogal : vogais) {
+            if (letra == vogal) {
+                ehVogal = true;
+                break;
+            }
+        }
+
+        if (ehVogal) {
             System.out.println("A letra " + letra + " é uma vogal");
         } else {
             System.out.println("A letra " + letra + " é uma consoante");
@@ -311,9 +320,7 @@ public class exercises {
 
     // Exercicio 25
     public static void exercicio25() {
-        Scanner entrada = new Scanner(System.in);
-        int altura = entrada.nextInt();
-        entrada.close();
+        int altura = 5;
 
         for (int i = 1; i <= altura; i++) {
 
@@ -332,11 +339,9 @@ public class exercises {
             for (int j = altura; j > i; j--) {
                 System.out.print(" ");
             }
-
             for (int k = 0; k < 2 * i - 1; k++) {
                 System.out.print(k);
             }
-
             System.out.println();
         }
     }
