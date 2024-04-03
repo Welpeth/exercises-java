@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class exercises {
     public static void main(String[] args) {
-        exercicio24();
+        exercicio25();
     }
 
     // Exercício 1: Verificar se um número é positivo, negativo ou zero
@@ -311,7 +311,9 @@ public class exercises {
 
     // Exercicio 25
     public static void exercicio25() {
-        int altura = 5;
+        Scanner entrada = new Scanner(System.in);
+        int altura = entrada.nextInt();
+        entrada.close();
 
         for (int i = 1; i <= altura; i++) {
 
@@ -319,8 +321,20 @@ public class exercises {
                 System.out.print(" ");
             }
 
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print(k);
+            }
+            System.out.println();
+        }
+
+        for (int i = altura; i >= 1; i--) {
+
+            for (int j = altura; j > i; j--) {
+                System.out.print(" ");
+            }
+
             for (int k = 0; k < 2 * i - 1; k++) {
-                System.out.print("*");
+                System.out.print(k);
             }
 
             System.out.println();
