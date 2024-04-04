@@ -1,13 +1,11 @@
 import java.util.Scanner;
-import java.util.stream.Collector.Characteristics;
 import java.util.Random;
 import java.lang.Math;
-import java.util.Arrays;
 import java.util.Date;
 
 public class exercises {
     public static void main(String[] args) {
-        exercicio15();
+        exercicio16();
     }
 
     // Exercício 1: Verificar se um número é positivo, negativo ou zero
@@ -56,14 +54,10 @@ public class exercises {
         double brabo = entrada.nextDouble();
         entrada.close();
 
-        for (double i = 1; i <= brabo; i++) {
-            if (brabo % 2 == 0) {
-                System.out.println("o numero nao e primo");
-                break;
-            } else {
-                System.out.println("o numero e primo");
-                break;
-            }
+        if (brabo % 2 == 0) {
+            System.out.println("o numero nao e primo");
+        } else if (brabo % 2 != 0 && brabo % brabo == 0) {
+            System.out.println("o numero e primo");
         }
     }
 
@@ -119,6 +113,7 @@ public class exercises {
         System.out.println(soma / 5);
     }
 
+    // Exercicio 9
     public static void exercicio9() {
         for (int i = 10; i >= 1; i--) {
             System.out.println(i);
@@ -131,9 +126,7 @@ public class exercises {
         int ano = entrada.nextInt();
         entrada.close();
 
-        if (ano % 100 != 0 && ano % 400 == 0) {
-            System.out.println("O ano é bissexto");
-        } else if (ano % 4 == 0) {
+        if (ano % 100 != 0 && ano % 400 == 0 && ano % 4 == 0) {
             System.out.println("O ano é bissexto");
         } else {
             System.out.println("O ano não é bissexto");
@@ -158,11 +151,11 @@ public class exercises {
 
     // Exercicio 12+1
     public static void exercicio13() {
-        float soma = 1;
-        for (float i = 1; i <= 100; i += 2) {
+        float soma = 0;
+        for (float i = 0; i <= 100; i += 2) {
             soma += i;
         }
-        System.out.println(soma / 100);
+        System.out.println(soma / 50);
     }
 
     // Exercicio 14
@@ -195,6 +188,25 @@ public class exercises {
 
         if (ehVogal) {
             System.out.println("A letra " + letra + " é uma vogal");
+        } else if (ehVogal == false) {
+            System.out.println("A letra " + letra + " é uma consoante");
+        } else {
+            System.out.println("Insira uma letra do alfabeto válida");
+        }
+    }
+
+    // Exercicio 15 dif 2
+    public static void exercicio15_2() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Escreva uma letra para ver se ela é vogal ou consoante");
+        String letra = entrada.nextLine();
+        entrada.close();
+
+        if (letra.equals("a") || letra.equals("e") || letra.equals("i") || letra.equals("o") || letra.equals("u")) {
+            System.out.println("A letra " + letra + " é uma vogal");
+        } else if (letra.equals("A") || letra.equals("E") || letra.equals("I") || letra.equals("O")
+                || letra.equals("U")) {
+            System.out.println("A letra " + letra + " é uma vogal");
         } else {
             System.out.println("A letra " + letra + " é uma consoante");
         }
@@ -203,12 +215,12 @@ public class exercises {
     // Exercicio 16
     public static void exercicio16() {
         int soma = 0;
-
+        int contador = 0;
         for (int i = 0; i <= 100; i++) {
             if (i % 2 > 0) {
                 soma += i;
-                System.out.println(soma);
-                continue;
+                contador++;
+                System.out.println(soma / contador);
             }
         }
     }
